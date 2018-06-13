@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{DB0425AF-7D20-4A7C-A678-52AC94E09390}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="LRDiagnosticsClient\LRDiagnosticsClient.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="LRDiagnosticsClient">
+        <MSBuild Projects="LRDiagnosticsClient\LRDiagnosticsClient.dproj"/>
+    </Target>
+    <Target Name="LRDiagnosticsClient:Clean">
+        <MSBuild Projects="LRDiagnosticsClient\LRDiagnosticsClient.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LRDiagnosticsClient:Make">
+        <MSBuild Projects="LRDiagnosticsClient\LRDiagnosticsClient.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="LRDiagnosticsClient"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="LRDiagnosticsClient:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="LRDiagnosticsClient:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
